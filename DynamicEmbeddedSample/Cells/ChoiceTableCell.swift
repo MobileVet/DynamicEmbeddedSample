@@ -12,6 +12,7 @@ import UIKit
 class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
     
     var choices : Array<String>?
+    var layoutAgain = true
     
     @IBOutlet var choiceCollectionView: UICollectionView!
     @IBOutlet var collectionHeightConstraint: NSLayoutConstraint!
@@ -23,6 +24,26 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
             choices = dictChoices
             
             self.contentView.setNeedsLayout()
+        }
+    }
+    
+    override func layoutSubviews() {
+        layoutAgain = true
+        recursiveLayout()
+    }
+    
+    func recursiveLayout() {
+        super.layoutSubviews()
+        
+        // make sure the collection view updates its cells appropriately
+        let flow = choiceCollectionView.collectionViewLayout as! UICollectionViewFlowLayout;
+        let width = self.bounds.size.width / 2 - 20
+        flow.estimatedItemSize = CGSizeMake(width, 21);
+        choiceCollectionView.collectionViewLayout.invalidateLayout()
+        
+        if layoutAgain {
+            layoutAgain = false
+            NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ChoiceTableCell.recursiveLayout), userInfo: nil, repeats: false)
         }
     }
     
