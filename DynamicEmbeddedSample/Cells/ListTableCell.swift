@@ -13,7 +13,7 @@ class ListTableCell : UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    func bindData(data : [String:AnyObject]) {
+    func bindModel(data : [String:AnyObject]) {
         if let name = data["name"] as! String? {
             nameLabel.text = name
         }

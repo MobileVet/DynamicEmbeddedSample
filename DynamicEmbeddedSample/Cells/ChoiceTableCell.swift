@@ -15,8 +15,8 @@ class ChoiceTableCell : ListTableCell {
     
     @IBOutlet var ChoiceCollectionView: UICollectionView!
     
-    override func bindData(data: [String : AnyObject]) {
-        super.bindData(data)
+    override func bindModel(data: [String : AnyObject]) {
+        super.bindModel(data)
         
         if let dictChoices = data["choices"] as! Array<String>? {
             choices = dictChoices

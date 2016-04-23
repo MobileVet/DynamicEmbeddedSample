@@ -10,11 +10,12 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    var dataArray : Array<[String:String]>?
+    var dataArray : Array<[String:AnyObject]>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +23,12 @@ class ListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func refreshDataPressed(sender: UIButton) {
+        dataArray = [["type":"listCell","name":"This is a short option"],
+                     ["type":"listCell","name":"This is a short longer optional text about stuff"]]
+        tableView.reloadData()
+    }
+    
     //// ---- TableView Datasource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,12 +36,15 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
         if let item = dataArray?[indexPath.row] {
-            let typeString = item["type"] as String!
-            cell = tableView.dequeueReusableCellWithIdentifier(typeString, forIndexPath: indexPath)
+            if let typeString = item["type"] as? String! {
+                let cell = tableView.dequeueReusableCellWithIdentifier(typeString, forIndexPath: indexPath) as! ListTableCell
+                cell.bindModel(item)
+                cell.contentView.backgroundColor = (indexPath.row % 2 == 1) ? UIColor.grayColor() : UIColor.whiteColor()
+                return cell
+            }
         }
-        return cell
+        return UITableViewCell()
     }
 }
 
