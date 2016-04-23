@@ -15,6 +15,7 @@
 		F94AD1031CCA7393002EAFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AD1011CCA7393002EAFF8 /* LaunchScreen.storyboard */; };
 		F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */; };
 		F94AD10E1CCA7C7A002EAFF8 /* ChoiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */; };
+		F94AD1101CCB0745002EAFF8 /* ChoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10F1CCB0745002EAFF8 /* ChoiceCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F94AD1041CCA7393002EAFF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableCell.swift; path = Cells/ListTableCell.swift; sourceTree = "<group>"; };
 		F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTableCell.swift; path = Cells/ChoiceTableCell.swift; sourceTree = "<group>"; };
+		F94AD10F1CCB0745002EAFF8 /* ChoiceCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceCollectionCell.swift; path = Cells/ChoiceCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */,
 				F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */,
+				F94AD10F1CCB0745002EAFF8 /* ChoiceCollectionCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				F94AD10E1CCA7C7A002EAFF8 /* ChoiceTableCell.swift in Sources */,
 				F94AD0F81CCA7393002EAFF8 /* ListViewController.swift in Sources */,
+				F94AD1101CCB0745002EAFF8 /* ChoiceCollectionCell.swift in Sources */,
 				F94AD0F61CCA7393002EAFF8 /* AppDelegate.swift in Sources */,
 				F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */,
 				F94AD0FE1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld in Sources */,

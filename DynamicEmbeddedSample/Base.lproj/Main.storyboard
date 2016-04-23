@@ -70,23 +70,52 @@
                                         </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-jg-tgI">
                                             <rect key="frame" x="10" y="36" width="580" height="103"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="103" id="tax-th-9Sh"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iBE-g2-loc">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="280" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k3j-re-Pi1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="choiceCollectionCell" id="k3j-re-Pi1" customClass="ChoiceCollectionCell" customModule="DynamicEmbeddedSample" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-NZ-29G">
+                                                                <rect key="frame" x="33" y="14" width="239" height="21"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="HF9-NZ-29G" secondAttribute="trailing" constant="8" id="0mn-CJ-jol"/>
+                                                        <constraint firstItem="HF9-NZ-29G" firstAttribute="top" secondItem="k3j-re-Pi1" secondAttribute="top" constant="14" id="2iQ-ci-k1a"/>
+                                                        <constraint firstAttribute="bottom" secondItem="HF9-NZ-29G" secondAttribute="bottom" constant="15" id="5HC-hV-MKF"/>
+                                                        <constraint firstItem="HF9-NZ-29G" firstAttribute="leading" secondItem="k3j-re-Pi1" secondAttribute="leading" constant="33" id="6Eg-7A-ZTU"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="choiceText" destination="HF9-NZ-29G" id="mVs-Re-MOQ"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="Ef8-9o-WBT" id="Pzc-fz-LBX"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <constraints>
@@ -105,7 +134,8 @@
                                     </userDefinedRuntimeAttributes>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ChoiceCollectionView" destination="ZYZ-jg-tgI" id="E3m-Qr-EAD"/>
+                                    <outlet property="choiceCollectionView" destination="ZYZ-jg-tgI" id="mhy-Zi-cUg"/>
+                                    <outlet property="collectionHeightConstraint" destination="tax-th-9Sh" id="raR-rw-Zr4"/>
                                     <outlet property="nameLabel" destination="qAt-A6-B3n" id="WI1-Rb-CnG"/>
                                 </connections>
                             </tableViewCell>

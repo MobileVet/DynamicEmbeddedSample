@@ -25,7 +25,9 @@ class ListViewController: UITableViewController {
 
     @IBAction func refreshDataPressed(sender: UIButton) {
         dataArray = [["type":"listCell","name":"This is a short option"],
-                     ["type":"listCell","name":"This is a short longer optional text about stuff"]]
+                     ["type":"listCell","name":"This is a short longer optional text about stuff"],
+                     ["type":"choiceCell","name":"This is a choice cell with some header text","choices":["Not Applicable","Yes","No","I don't really want to answer","Maybe","Yesterday"]],
+                     ["type":"listCell","name":"This is a short option"]]
         tableView.reloadData()
     }
     
