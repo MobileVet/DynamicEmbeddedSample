@@ -16,6 +16,7 @@
 		F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */; };
 		F94AD10E1CCA7C7A002EAFF8 /* ChoiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */; };
 		F94AD1101CCB0745002EAFF8 /* ChoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10F1CCB0745002EAFF8 /* ChoiceCollectionCell.swift */; };
+		F94AD1121CCBF9FF002EAFF8 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD1111CCBF9FF002EAFF8 /* DynamicLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableCell.swift; path = Cells/ListTableCell.swift; sourceTree = "<group>"; };
 		F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTableCell.swift; path = Cells/ChoiceTableCell.swift; sourceTree = "<group>"; };
 		F94AD10F1CCB0745002EAFF8 /* ChoiceCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceCollectionCell.swift; path = Cells/ChoiceCollectionCell.swift; sourceTree = "<group>"; };
+		F94AD1111CCBF9FF002EAFF8 /* DynamicLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				F94AD10A1CCA7AD9002EAFF8 /* Cells */,
 				F94AD0F51CCA7393002EAFF8 /* AppDelegate.swift */,
+				F94AD1111CCBF9FF002EAFF8 /* DynamicLabel.swift */,
 				F94AD0F71CCA7393002EAFF8 /* ListViewController.swift */,
 				F94AD0F91CCA7393002EAFF8 /* Main.storyboard */,
 				F94AD0FF1CCA7393002EAFF8 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 				F94AD1101CCB0745002EAFF8 /* ChoiceCollectionCell.swift in Sources */,
 				F94AD0F61CCA7393002EAFF8 /* AppDelegate.swift in Sources */,
 				F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */,
+				F94AD1121CCBF9FF002EAFF8 /* DynamicLabel.swift in Sources */,
 				F94AD0FE1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

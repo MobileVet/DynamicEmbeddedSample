@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--List View Controller-->
@@ -32,7 +35,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puy-GG-Gt7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puy-GG-Gt7" customClass="DynamicLabel" customModule="DynamicEmbeddedSample" customModuleProvider="target">
                                             <rect key="frame" x="10" y="10" width="580" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -62,7 +65,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAt-A6-B3n">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAt-A6-B3n" customClass="DynamicLabel" customModule="DynamicEmbeddedSample" customModuleProvider="target">
                                             <rect key="frame" x="10" y="10" width="580" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -87,12 +90,25 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-NZ-29G">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-NZ-29G" customClass="DynamicLabel" customModule="DynamicEmbeddedSample" customModuleProvider="target">
                                                                 <rect key="frame" x="33" y="0.0" width="239" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-5V-Ojc" userLabel="selectedView">
+                                                                <rect key="frame" x="0.0" y="15" width="20" height="20"/>
+                                                                <color key="backgroundColor" red="0.066666670139999995" green="0.34509804840000002" blue="0.66274511810000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="20" id="QeB-hN-pOf"/>
+                                                                    <constraint firstAttribute="width" secondItem="V2U-5V-Ojc" secondAttribute="height" multiplier="1:1" id="puf-RA-f6M"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
@@ -102,6 +118,8 @@
                                                         <constraint firstItem="HF9-NZ-29G" firstAttribute="top" secondItem="k3j-re-Pi1" secondAttribute="top" id="2iQ-ci-k1a"/>
                                                         <constraint firstAttribute="bottom" secondItem="HF9-NZ-29G" secondAttribute="bottom" id="5HC-hV-MKF"/>
                                                         <constraint firstItem="HF9-NZ-29G" firstAttribute="leading" secondItem="k3j-re-Pi1" secondAttribute="leading" constant="33" id="6Eg-7A-ZTU"/>
+                                                        <constraint firstItem="V2U-5V-Ojc" firstAttribute="leading" secondItem="k3j-re-Pi1" secondAttribute="leading" id="VkU-3n-Nyv"/>
+                                                        <constraint firstItem="V2U-5V-Ojc" firstAttribute="centerY" secondItem="k3j-re-Pi1" secondAttribute="centerYWithinMargins" id="yAr-Yx-vgb"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -111,6 +129,7 @@
                                                     <connections>
                                                         <outlet property="choiceText" destination="HF9-NZ-29G" id="mVs-Re-MOQ"/>
                                                         <outlet property="labelHorizontalOffset" destination="6Eg-7A-ZTU" id="NWN-W5-V90"/>
+                                                        <outlet property="selectedBackgroundView" destination="V2U-5V-Ojc" id="2u2-jf-DGE"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>

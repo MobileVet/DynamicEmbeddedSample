@@ -12,10 +12,23 @@ class ListViewController: UITableViewController {
 
     var dataArray : Array<[String:AnyObject]>?
     
+    var staticData : Array<Array<[String:AnyObject]>> = Array()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        // build out some test data to swap in and out for testing the layout
+        staticData.append([["type":"listCell","name":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d"],
+                     ["type":"listCell","name":"Ut enim ad minim"],
+                     ["type":"choiceCell","name":"ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in","choices":["Not Applicable","Yes","No","I don't really want to answer","Maybe","Yesterday"]],
+                     ["type":"listCell","name":"reprehenderit in voluptate velit esse cillum dolore eu"]])
+        
+        staticData.append([["type":"listCell","name":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."],
+                     ["type":"choiceCell","name":"ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis","choices":["Yes","No","Maybe"]],
+                     ["type":"listCell","name":"reprehenderit in voluptate velit esse cillum dolore eu"],
+                     ["type":"listCell","name":"sunt in culpa qui officia"]])
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,10 +37,12 @@ class ListViewController: UITableViewController {
     }
 
     @IBAction func refreshDataPressed(sender: UIButton) {
-        dataArray = [["type":"listCell","name":"This is a short option"],
-                     ["type":"listCell","name":"This is a short longer optional text about stuff"],
-                     ["type":"choiceCell","name":"This is a choice cell with some header text","choices":["Not Applicable","Yes","No","I don't really want to answer","Maybe","Yesterday"]],
-                     ["type":"listCell","name":"This is a short option"]]
+        if let data = dataArray as Array<[String:AnyObject]>? {
+            dataArray = (data == staticData[0]) ? staticData[1] : staticData[0]
+        }
+        else {
+            dataArray = staticData[0]
+        }
         tableView.reloadData()
     }
     

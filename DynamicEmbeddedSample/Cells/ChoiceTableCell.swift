@@ -17,6 +17,12 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
     @IBOutlet var choiceCollectionView: UICollectionView!
     @IBOutlet var collectionHeightConstraint: NSLayoutConstraint!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        choiceCollectionView.scrollEnabled = false
+        choiceCollectionView.allowsMultipleSelection = true
+    }
+
     override func bindModel(data: [String : AnyObject]) {
         super.bindModel(data)
         
@@ -25,6 +31,7 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
             
             self.contentView.setNeedsLayout()
         }
+        choiceCollectionView.reloadData()
     }
     
     override func layoutSubviews() {
@@ -51,7 +58,7 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
         
         // at this point, the collection view still has frame based on the ANY size classed storyboard
         choiceCollectionView.frame.size.width = targetSize.width
-        choiceCollectionView.frame.size.height = 2000 // CGRectMake(0,0,targetSize.width,2000)
+        choiceCollectionView.frame.size.height = 2000
         choiceCollectionView.layoutIfNeeded()
         
         let newCollectionHeight = choiceCollectionView.collectionViewLayout.collectionViewContentSize().height
@@ -69,7 +76,7 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("choiceCollectionCell", forIndexPath: indexPath) as! ChoiceCollectionCell
-        cell.choiceText.text = choices?[indexPath.row]
+        cell.setText(choices?[indexPath.row])
         return cell
     }
 
