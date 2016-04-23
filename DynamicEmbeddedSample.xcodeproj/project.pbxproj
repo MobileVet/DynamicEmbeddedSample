@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		F94AD0F61CCA7393002EAFF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD0F51CCA7393002EAFF8 /* AppDelegate.swift */; };
-		F94AD0F81CCA7393002EAFF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD0F71CCA7393002EAFF8 /* ViewController.swift */; };
+		F94AD0F81CCA7393002EAFF8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD0F71CCA7393002EAFF8 /* ListViewController.swift */; };
 		F94AD0FB1CCA7393002EAFF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AD0F91CCA7393002EAFF8 /* Main.storyboard */; };
 		F94AD0FE1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F94AD0FC1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld */; };
 		F94AD1001CCA7393002EAFF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94AD0FF1CCA7393002EAFF8 /* Assets.xcassets */; };
 		F94AD1031CCA7393002EAFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AD1011CCA7393002EAFF8 /* LaunchScreen.storyboard */; };
+		F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */; };
+		F94AD10E1CCA7C7A002EAFF8 /* ChoiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F94AD0F21CCA7393002EAFF8 /* DynamicEmbeddedSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicEmbeddedSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94AD0F51CCA7393002EAFF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F94AD0F71CCA7393002EAFF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F94AD0F71CCA7393002EAFF8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F94AD0FA1CCA7393002EAFF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F94AD0FD1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DynamicEmbeddedSample.xcdatamodel; sourceTree = "<group>"; };
 		F94AD0FF1CCA7393002EAFF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94AD1021CCA7393002EAFF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94AD1041CCA7393002EAFF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableCell.swift; path = Cells/ListTableCell.swift; sourceTree = "<group>"; };
+		F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceTableCell.swift; path = Cells/ChoiceTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,9 @@
 		F94AD0F41CCA7393002EAFF8 /* DynamicEmbeddedSample */ = {
 			isa = PBXGroup;
 			children = (
+				F94AD10A1CCA7AD9002EAFF8 /* Cells */,
 				F94AD0F51CCA7393002EAFF8 /* AppDelegate.swift */,
-				F94AD0F71CCA7393002EAFF8 /* ViewController.swift */,
+				F94AD0F71CCA7393002EAFF8 /* ListViewController.swift */,
 				F94AD0F91CCA7393002EAFF8 /* Main.storyboard */,
 				F94AD0FF1CCA7393002EAFF8 /* Assets.xcassets */,
 				F94AD1011CCA7393002EAFF8 /* LaunchScreen.storyboard */,
@@ -65,6 +70,15 @@
 				F94AD0FC1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld */,
 			);
 			path = DynamicEmbeddedSample;
+			sourceTree = "<group>";
+		};
+		F94AD10A1CCA7AD9002EAFF8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F94AD10B1CCA7B1F002EAFF8 /* ListTableCell.swift */,
+				F94AD10D1CCA7C7A002EAFF8 /* ChoiceTableCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F94AD0F81CCA7393002EAFF8 /* ViewController.swift in Sources */,
+				F94AD10E1CCA7C7A002EAFF8 /* ChoiceTableCell.swift in Sources */,
+				F94AD0F81CCA7393002EAFF8 /* ListViewController.swift in Sources */,
 				F94AD0F61CCA7393002EAFF8 /* AppDelegate.swift in Sources */,
+				F94AD10C1CCA7B1F002EAFF8 /* ListTableCell.swift in Sources */,
 				F94AD0FE1CCA7393002EAFF8 /* DynamicEmbeddedSample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
