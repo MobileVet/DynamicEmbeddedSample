@@ -90,8 +90,11 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-NZ-29G" customClass="DynamicLabel" customModule="DynamicEmbeddedSample" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-NZ-29G">
                                                                 <rect key="frame" x="33" y="0.0" width="239" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="239" id="kGr-hd-o5D"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -129,12 +132,14 @@
                                                     <connections>
                                                         <outlet property="choiceText" destination="HF9-NZ-29G" id="mVs-Re-MOQ"/>
                                                         <outlet property="labelHorizontalOffset" destination="6Eg-7A-ZTU" id="NWN-W5-V90"/>
+                                                        <outlet property="labelWidthConstraint" destination="kGr-hd-o5D" id="fKy-3v-P5k"/>
                                                         <outlet property="selectedBackgroundView" destination="V2U-5V-Ojc" id="2u2-jf-DGE"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
                                             <connections>
                                                 <outlet property="dataSource" destination="Ef8-9o-WBT" id="Pzc-fz-LBX"/>
+                                                <outlet property="delegate" destination="Ef8-9o-WBT" id="6XN-iF-NCK"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>

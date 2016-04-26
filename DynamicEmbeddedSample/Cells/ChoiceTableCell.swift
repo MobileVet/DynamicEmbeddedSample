@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 
-class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
+class ChoiceTableCell : ListTableCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var choices : Array<String>?
-    var layoutAgain = true
+    let columnNum: CGFloat = 2 // use number of columns instead of a static maximum cell width
+    var cellWidth: CGFloat = 0 //
+    var sizingCell : ChoiceCollectionCell!
     
     @IBOutlet var choiceCollectionView: UICollectionView!
     @IBOutlet var collectionHeightConstraint: NSLayoutConstraint!
@@ -21,6 +23,10 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
         super.awakeFromNib()
         choiceCollectionView.scrollEnabled = false
         choiceCollectionView.allowsMultipleSelection = true
+        
+        if let flowLayout = choiceCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10) //could not set in storyboard, don't know why
+        }
     }
 
     override func bindModel(data: [String : AnyObject]) {
@@ -31,27 +37,23 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
             
             self.contentView.setNeedsLayout()
         }
+        
+        sizingCell = choiceCollectionView.dequeueReusableCellWithReuseIdentifier("choiceCollectionCell", forIndexPath: NSIndexPath(forItem: 0, inSection: 0)) as? ChoiceCollectionCell
         choiceCollectionView.reloadData()
     }
     
     override func layoutSubviews() {
-        layoutAgain = true
-        recursiveLayout()
-    }
-    
-    func recursiveLayout() {
         super.layoutSubviews()
+
+        if let flowLayout = choiceCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let spaceBetweenCells = flowLayout.minimumInteritemSpacing * (columnNum - 1)
+            let totalCellAvailableWidth = self.bounds.size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - spaceBetweenCells - 20
+            cellWidth = floor(totalCellAvailableWidth / columnNum);
+        }
         
-        // make sure the collection view updates its cells appropriately
-        let flow = choiceCollectionView.collectionViewLayout as! UICollectionViewFlowLayout;
-        let width = self.bounds.size.width / 2 - 20
-        flow.estimatedItemSize = CGSizeMake(width, 21);
+        //recalculate the collection view layout when the view layout changes
         choiceCollectionView.collectionViewLayout.invalidateLayout()
         
-        if layoutAgain {
-            layoutAgain = false
-            NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ChoiceTableCell.recursiveLayout), userInfo: nil, repeats: false)
-        }
     }
     
     override func systemLayoutSizeFittingSize(targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
@@ -80,4 +82,15 @@ class ChoiceTableCell : ListTableCell, UICollectionViewDataSource {
         return cell
     }
 
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        if sizingCell != nil  {
+        let cellMargins = sizingCell.layoutMargins.left + sizingCell.layoutMargins.right
+        sizingCell.setText(choices?[indexPath.row])
+        sizingCell.choiceText.preferredMaxLayoutWidth = cellWidth - cellMargins - sizingCell.labelHorizontalOffset.constant
+        sizingCell.labelWidthConstraint.constant = cellWidth - cellMargins - sizingCell.labelHorizontalOffset.constant
+        return sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize) //apply auto layout and retrieve the size of the cell
+        }
+        return CGSizeZero
+    }
 }

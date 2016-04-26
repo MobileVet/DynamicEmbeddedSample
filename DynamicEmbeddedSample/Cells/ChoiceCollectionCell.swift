@@ -10,33 +10,9 @@ import Foundation
 import UIKit
 
 class ChoiceCollectionCell : UICollectionViewCell {
-    var isHeightCalculated = false
-    @IBOutlet var choiceText : DynamicLabel!
+    @IBOutlet var choiceText : UILabel!
     @IBOutlet var labelHorizontalOffset: NSLayoutConstraint!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight]
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        isHeightCalculated = false
-    }
-
-    override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        // We need to cache our calculation to prevent a crash.
-        if !isHeightCalculated {
-            setNeedsLayout()
-            layoutIfNeeded()
-            let width = self.bounds.size.width / 2
-            layoutAttributes.size.width = width
-            choiceText.preferredMaxLayoutWidth = width - labelHorizontalOffset.constant
-            layoutAttributes.size.height = choiceText.intrinsicContentSize().height
-            isHeightCalculated = true
-        }
-        return layoutAttributes
-    }
+    @IBOutlet var labelWidthConstraint: NSLayoutConstraint!
     
     func setText(text : String?) {
         choiceText.text = text ?? ""
